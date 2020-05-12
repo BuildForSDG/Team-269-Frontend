@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+UI for data collection app to measure proportion of urban population living in slums, informal settlements or inadequate housing
 
-## Available Scripts
+[![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
-In the project directory, you can run:
 
-### `npm start`
+## About
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+A data collection app to measure proportion of urban population living in slums, informal settlements or inadequate housing.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Why
 
-### `npm test`
+Data gaps across the African continent threaten to hinder the achievement of the Sustainable Development Goals and the African Union’s Agenda 2063. According to the United Nations, 68% of the SDG indicators lack data. This makes it difficult to measure progress on achievement of SDGs.The absence of high quality data on various indicators makes it difficult for policy makers and other stakeholders to plan and make informed decisions. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The number of people living in urban areas is rapidly increasing globally. However, cities and urban areas are not coping with the influx of people and the rate of urbanization. It is estimated that 1 billion people live in slums globally.
+Many countries do not have adequate data on the proportion of the population that live in slums who need adequate housing, which is a basic human right. 
 
-### `npm run build`
+Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1: Proportion of urban population living in slums
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Usage
+ How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run `composer install` and `composer dump-autoload` to get started.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`index.php` is the entry to the project and source code should go into the `src` folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+All tests should be written in the test folder.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Hints
 
-## Learn More
+- Test: `composer run test`
+- Install dependencies: `composer install <dep name>`
+- Lint: `composer run php-cs-fixer`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Authors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Mentor: Lewis Tanguhwa
+- TTL: Bright Onapito 
+- Product Manager: Henry Mutegeki
+#### Frontend Enginners
+- [Pearl Ampeire](https://github.com/pearlonzo)
+- [Luigi Morel](https://github.com/morelmiles)
+- [Suliaman Kayizi](https://github.com/Sulaiman-Mozes)
+- [Henry Mutegeki](https://github.com/MutegekiHenry)
+- [Nsereko Allan](https://github.com/nserekoallan)
 
-### Code Splitting
+## Contributing
+If this project sounds interesting to you and you'd like to contribute, thank you!
+First, you can send a mail to buildforsdg@andela.com to indicate your interest, why you'd like to support and what forms of support you can bring to the table, but here are areas we think we'd need the most help in this project :
+1.  area one (e.g this app is about human trafficking and you need feedback on your roadmap and feature list from the private sector / NGOs)
+2.  area two (e.g you want people to opt-in and try using your staging app at staging.project-name.com and report any bugs via a form)
+3.  area three (e.g here is the zoom link to our end-of sprint webinar, join and provide feedback as a stakeholder if you can)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Acknowledgements
 
-### Analyzing the Bundle Size
+### Source code
+Add credits
+### Articles and reports
+- [Devex](https://www.devex.com/news/data-gaps-threaten-achievement-of-development-goals-in-africa-95825)
+- [Open Data Watch Report: Mapping Gender Data Availability in Africa](https://opendatawatch.com/monitoring-reporting/bridging-gender-data-gaps-in-africa/)
+- [TRENDS Report: Counting on the World to Act](https://countingontheworld.sdsntrends.org/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## LICENSE
+MIT
