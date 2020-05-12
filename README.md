@@ -27,9 +27,6 @@ Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1:
 
 - Run  `npm start` to get started.
 
-`index.php` is the entry to the project and source code should go into the `src` folder.
-
-All tests should be written in the test folder.
 
 #### Hints
 
