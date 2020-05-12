@@ -23,7 +23,9 @@ Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1:
 
 ## Setup
 
-Run `composer install` and `composer dump-autoload` to get started.
+- Run `npm install` to install dependencies.
+
+- Run  `npm start` to get started.
 
 `index.php` is the entry to the project and source code should go into the `src` folder.
 
