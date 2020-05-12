@@ -28,12 +28,6 @@ Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1:
 - Run  `npm start` to get started.
 
 
-#### Hints
-
-- Test: `composer run test`
-- Install dependencies: `composer install <dep name>`
-- Lint: `composer run php-cs-fixer`
-
 ## Authors
 
 - Mentor: Lewis Tanguhwa
