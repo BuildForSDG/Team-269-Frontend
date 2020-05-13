@@ -14,7 +14,9 @@ Data gaps across the African continent threaten to hinder the achievement of the
 The number of people living in urban areas is rapidly increasing globally. However, cities and urban areas are not coping with the influx of people and the rate of urbanization. It is estimated that 1 billion people live in slums globally.
 Many countries do not have adequate data on the proportion of the population that live in slums who need adequate housing, which is a basic human right. 
 
+
 Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1: Proportion of urban population living in slums.
+
 
 
 ## Usage
@@ -26,6 +28,7 @@ Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1:
 - Run `npm install` to install dependencies.
 
 - Run  `npm start` to get started.
+
 
 
 ## Authors
