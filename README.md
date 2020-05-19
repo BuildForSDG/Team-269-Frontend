@@ -1,6 +1,7 @@
 UI for data collection app to measure proportion of urban population living in slums, informal settlements or inadequate housing
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f900bb0c061e480fa1888a40dd25925b)](https://app.codacy.com/gh/BuildForSDG/Team-269-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-269-Frontend&utm_campaign=Badge_Grade_Settings)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f900bb0c061e480fa1888a40dd25925b)](https://app.codacy.com/gh/BuildForSDG/Team-269-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-269-Frontend&utm_campaign=Badge_Grade_Settings)
 [![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
 
 
