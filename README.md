@@ -18,30 +18,26 @@ Many countries do not have adequate data on the proportion of the population tha
 Our solution will therefore help to address SDG 17 and SDG 11, indicator 11.1.1: Proportion of urban population living in slums.
 
 
-
 ## Usage
  How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
 
-
 ## Setup
 
-- Run `npm install` to install dependencies.
+-   Run `npm install` to install dependencies.
 
-- Run  `npm start` to get started.
-
-
+-   Run  `npm start` to get started.
 
 ## Authors
 
-- Mentor: Lewis Tanguhwa
-- TTL: Bright Onapito 
-- Product Manager: Henry Mutegeki
-#### Frontend Enginners
-- [Pearl Ampeire](https://github.com/pearlonzo)
-- [Luigi Morel](https://github.com/morelmiles)
-- [Suliaman Kayizi](https://github.com/Sulaiman-Mozes)
-- [Henry Mutegeki](https://github.com/MutegekiHenry)
-- [Nsereko Allan](https://github.com/nserekoallan)
+-   Mentor: Lewis Tanguhwa
+-   TTL: Bright Onapito 
+-   Product Manager: Henry Mutegeki
+### Frontend Enginners
+-   [Pearl Ampeire](https://github.com/pearlonzo)
+-   [Luigi Morel](https://github.com/morelmiles)
+-   [Suliaman Kayizi](https://github.com/Sulaiman-Mozes)
+-   [Henry Mutegeki](https://github.com/MutegekiHenry)
+-   [Nsereko Allan](https://github.com/nserekoallan)
 
 ## Contributing
 If this project sounds interesting to you and you'd like to contribute, thank you!
