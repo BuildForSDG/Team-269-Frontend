@@ -10,7 +10,6 @@ const Header = () => (
     </div>
     <div className="HeaderLinksWrap">
       <div className="HeaderLinks bold uppercase">
-        <Link to="#" className="HeaderLinkPricing">pricing</Link>
         <Link to="#" className="HeaderLinkDocs">docs</Link>
         <Link to="/login" className="HeaderLinkLogin">login</Link>
       </div>
