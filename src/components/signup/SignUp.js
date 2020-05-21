@@ -42,17 +42,17 @@ class SignUp extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    if (formValid(this.state)) {
-      console.log(`
-        --SUBMITTING--
-        First Name: ${this.state.firstName}
-        Last Name: ${this.state.lastName}
-        Email: ${this.state.email}
-        Password: ${this.state.password}
-      `);
-    } else {
-      console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
-    }
+    // if (formValid(this.state)) {
+    //   console.log(`
+    //     --SUBMITTING--
+    //     First Name: ${this.state.firstName}
+    //     Last Name: ${this.state.lastName}
+    //     Email: ${this.state.email}
+    //     Password: ${this.state.password}
+    //   `);
+    // } else {
+    //   console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
+    // }
   };
 
   handleChange = (e) => {
