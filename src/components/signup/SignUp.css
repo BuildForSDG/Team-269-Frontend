@@ -47,7 +47,7 @@ form .form-info {
   padding: 3rem 0;
 }
 
-.form-info> p {
+.form-info > p {
   padding: 0.2rem;
   color: var(--secondary-color);
 }
