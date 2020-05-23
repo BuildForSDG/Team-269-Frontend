@@ -7,6 +7,8 @@ UI for data collection app to measure proportion of urban population living in s
 
 A data collection app to measure proportion of urban population living in slums, informal settlements or inadequate housing.
 
+Official site => <a href="https://slumdata-ug.netlify.app">https://slumdata-ug.netlify.app</a>
+
 ## Why
 
 Data gaps across the African continent threaten to hinder the achievement of the Sustainable Development Goals and the African Union’s Agenda 2063. According to the United Nations, 68% of the SDG indicators lack data. This makes it difficult to measure progress on achievement of SDGs.The absence of high quality data on various indicators makes it difficult for policy makers and other stakeholders to plan and make informed decisions. 
