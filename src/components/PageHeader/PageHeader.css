@@ -24,11 +24,12 @@ header.Header {
 }
 
 /* remove focus from logo link - mozilla */
-.LogoLink:focus {
-  outline: none;
-}
 .LogoLink::-moz-focus-inner {
   border: 0;
+}
+
+.LogoLink:focus {
+  outline: none;
 }
 
 @media only screen and (max-width: 640px) {
