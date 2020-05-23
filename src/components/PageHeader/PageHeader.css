@@ -33,7 +33,8 @@ header.Header {
 }
 
 @media only screen and (max-width: 640px) {
-  .HeaderLinkPricing,.HeaderLinkDocs {
+  .HeaderLinkPricing,
+  .HeaderLinkDocs {
     display: none;
   }
 }
