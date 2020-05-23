@@ -25,9 +25,7 @@ body {
   background-color: #5D5C61;
 }
 
-
 main {
-
   margin: 0 2%;
 }
 
@@ -49,7 +47,7 @@ form .form-info {
   padding: 3rem 0;
 }
 
-.form-info>p {
+.form-info> p {
   padding: 0.2rem;
   color: var(--secondary-color);
 }
