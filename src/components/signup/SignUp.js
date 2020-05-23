@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import './SignUp.css';
+import Header from '../PageHeader';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -86,6 +87,7 @@ class SignUp extends Component {
     const { formErrors } = this.state;
     return (
       <main>
+         <Header />
         <form onSubmit={this.handleSubmit}>
           <div className="form-info text-center">
             <img src={logo} alt="" className="logo-center" />
