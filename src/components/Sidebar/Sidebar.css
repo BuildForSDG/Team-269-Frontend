@@ -1,0 +1,41 @@
+.categories-display {
+  border: 1px solid green;
+  background-color: grey;
+  position: fixed;
+  height: 100%;
+  width: 190px;
+  color: #fff;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.categories-container {
+  margin-top: 20px;
+}
+
+.name {
+  color: #ffd700;
+}
+
+h1.name {
+  height: 40px;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 8px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
+}

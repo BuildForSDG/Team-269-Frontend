@@ -1,0 +1,54 @@
+.charts-container {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+
+.header-info-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: 1px solid gray;
+}
+
+
+.header-contact-name {
+  padding: 10px;
+  margin-left: 200px;
+  font-size: 16px;
+  color: black;
+}
+
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  color: black;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-container .profile {
+  border-color: black;
+  border: 50%;
+
+}
+
+.profile-container span {
+
+  margin-top: 5px;
+  margin-left: 15px;
+}
