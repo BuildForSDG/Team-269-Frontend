@@ -1,0 +1,108 @@
+:root {
+  --primary-color: #062863;
+  --primary-color-light: #083e9e;
+  --primary-color-lighter: #1f50a7;
+  --secondary-color: #4a5568;
+  --secondary-color-light: #9fa3aa;
+  --white: #fff;
+  --almost-white: #edf2f7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 55%;
+}
+
+body {
+  font-family: 'Sen', sans-serif;
+  font-size: 1.3rem;
+  background-image: url('../../images/bg.png') cover no-repeat;
+  background-color: #5D5C61;
+}
+
+main {
+  margin: 0 2%;
+}
+
+/* utility classes */
+.text-center {
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
+  padding: 0 4rem;
+  height: 110vh;
+  max-width: 45rem;
+  background-color: var(--white);
+  border-radius: 2rem 2rem 2rem 0;
+}
+
+form .form-info {
+  padding: 3rem 0;
+}
+
+.form-info > p {
+  padding: 0.2rem;
+  color: var(--secondary-color);
+}
+
+form h2 {
+  color: var(--primary-color-lighter);
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+form input,
+form select {
+  height: 4.2rem;
+  width: 100%;
+  padding: 0 0.7rem;
+  background-color: var(--almost-white);
+  font-family: inherit;
+  border: none;
+  border-radius: 0.3rem;
+}
+
+.form-control {
+  margin-bottom: 3rem;
+}
+
+input[type='submit'] {
+  margin-bottom: 3rem;
+  background-color: var(--primary-color-light);
+  color: var(--white);
+  font-weight: bold;
+  height: 5rem;
+  border-radius: 1rem 1rem 1rem 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+input[type='submit']:hover {
+  background-color: var(--primary-color);
+}
+
+.logo-center {
+  text-align: center;
+}
+
+.errorMessage {
+  color: #d11212;
+}
+
+small {
+  text-align: center;
+  font-size: 14px;
+}
