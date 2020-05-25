@@ -94,16 +94,6 @@ class Login extends Component {
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
           <div className="form-control">
-            <label htmlFor="role">Which role best describes you?</label>
-            <select name="role">
-              <option value="clicktoselect">Click To Select</option>
-              <option value="reseacher">Researcher</option>
-              <option value="enumerator">Enumerator</option>
-              <option value="student">Student</option>
-              onChange={this.handleChange}
-            </select>
-          </div>
-          <div className="form-control">
             <input type="submit" value="LOGIN" />
             <small>
              Don't have an account? <Link>Sign Up</Link>
