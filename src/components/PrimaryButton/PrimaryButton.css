@@ -16,7 +16,7 @@
   justify-content: center;
 }
 
-.Primary-Btn:hover{
+.Primary-Btn:hover {
   background-color: transparent;
   color: #379683;
   outline: 2px solid #379683;

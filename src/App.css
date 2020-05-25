@@ -2,10 +2,8 @@
   margin: 0;
   padding: 0;
 }
+
 .LandingPage {
-  /* background: #2D4159; */
-  /* background: #1F2833; */
-  /* background: #379683; */
-  background: #5D5C61;
+  background: #5d5c61;
   height: 100vh;
 }
