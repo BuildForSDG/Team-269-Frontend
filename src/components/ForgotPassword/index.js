@@ -49,7 +49,7 @@ class ForgotPassword extends Component {
         formErrors.password = value.length < 1 ? 'Password is a required field' : '';
         break;
       case 'confirmPassword':
-        formErrors.confirmPassword = value !== password.value ? 'Enter the same password' : '';
+        formErrors.confirmPassword = value.length !== formErrors.password ? 'Enter the same password' : '';
         break;
 
     }
