@@ -107,19 +107,6 @@ class SignUp extends Component {
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
           </div>
           <div className="form-control">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input
-              className={formErrors.phoneNumber.length > 0 ? 'error' : null}
-              type="text"
-              name="phoneno"
-              placeholder="Phone Number"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.phoneNumber.length > 0 && <span className="errorMessage">{formErrors.phoneNumber}</span>}
-          </div>
-          <div className="form-control">
             <label htmlFor="password">Password</label>
             <input
               className={formErrors.password.length > 0 ? 'error' : null}
@@ -148,16 +135,6 @@ class SignUp extends Component {
             )}
           </div>
           <div className="form-control">
-            <label htmlFor="role">Which role best describes you?</label>
-            <select name="role">
-              <option value="clicktoselect">Click To Select</option>
-              <option value="reseacher">Researcher</option>
-              <option value="enumerator">Enumerator</option>
-              <option value="student">Student</option>
-              onChange={this.handleChange}
-            </select>
-          </div>
-          <div className="form-control">
             <input type="submit" value="CREATE ACCOUNT" />
             <small>
               Already have an account? <Link>Login</Link>
@@ -168,6 +145,8 @@ class SignUp extends Component {
           <LandingFooter />
         </div>
       </main>
+
+
     );
   }
 }
