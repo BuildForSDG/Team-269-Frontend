@@ -34,7 +34,9 @@ class Login extends Component {
       formErrors: {
         email: '',
         password: ''
-      }
+      },
+      error: ''
+
     };
   }
   handleSubmit = (e) => {
@@ -45,11 +47,17 @@ class Login extends Component {
       password: this.state.password,
     };
 
-    axios.post('https://b4sdg-team269.herokuapp.com/api/v1/auth/register', userLoginData)
+    axios
+    .post('https://b4sdg-team269.herokuapp.com/api/v1/auth/login', userLoginData)
     .then((res) => {
+
       console.log(res.data)
     }).catch((error) => {
       console.log(error)
+      this.setState({
+
+        error: 'Invalid Login Attempt'
+      });
     });
 
   this.setState({email: '', password: ''})
@@ -64,11 +72,11 @@ class Login extends Component {
     switch (name) {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
-        this.setState({ email: value })
+        this.setState({ email: value, error:'' })
         break;
       case 'password':
         formErrors.password = value.length < 1 ? 'Password is a required field' : '';
-        this.setState({ password: value })
+        this.setState({ password: value, error:'' })
         break;
       default:
         break;
@@ -77,7 +85,7 @@ class Login extends Component {
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, error } = this.state;
     return (
       <main>
         <Header />
@@ -95,6 +103,8 @@ class Login extends Component {
               name="email"
               placeholder="Email Address"
               required
+              formNoValidate
+              onChange={this.handleChange}
             />
 
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
@@ -112,8 +122,15 @@ class Login extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
+          {error && (
+              <span className="errorMessage">{error}</span>
+                )}
           <div className="form-group">
+
             <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
+
+
+
             <small>
               Don't have an account? <Link to={"/register"}>Sign Up</Link>
             </small>

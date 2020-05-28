@@ -89,7 +89,7 @@ class SignUp extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value });
+    this.setState({ formErrors, [name]: value },() => console.log(this.state));
   };
   render() {
     const { formErrors } = this.state;
