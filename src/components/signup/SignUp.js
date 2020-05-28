@@ -107,7 +107,7 @@ class SignUp extends Component {
 
           <form onSubmit={this.handleSubmit}>
             <div className="form-info text-center">
-              <img src={logo} alt="" className="logo-center" />
+              <img src={logo} alt="" className="logo-center" height="30px" />
               <h2>Welcome to Slum Data!</h2>
               <p>Your one stop solution for slum related data.</p>
             </div>
@@ -169,9 +169,7 @@ class SignUp extends Component {
                 )}
             <div className="form-group">
               <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
-              <small>
-                Already have an account? <Link to={"/login"}>Login</Link>
-              </small>
+               <b> Already have an account? <Link to={"/login"}>Login</Link></b>
             </div>
           </form>
         </div>

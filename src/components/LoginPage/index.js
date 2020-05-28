@@ -107,6 +107,7 @@ class Login extends Component {
             <h2>Login to Slum Data!</h2>
             <p>Your one stop solution for slum related data.</p>
           </div>
+          <br/>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
@@ -134,6 +135,7 @@ class Login extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
+          <br/>
           {error && (
               <span className="errorMessage">{error}</span>
                 )}
@@ -144,7 +146,7 @@ class Login extends Component {
 
 
             <small>
-              Don't have an account? <Link to={"/register"}>Sign Up</Link>
+              <b>Don't have an account? <Link to={"/register"}>Sign Up</Link></b>
             </small>
           </div>
         </form>

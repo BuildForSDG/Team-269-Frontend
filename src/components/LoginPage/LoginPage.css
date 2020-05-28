@@ -37,7 +37,7 @@ main {
 form {
   margin: 0 auto;
   padding: 0 4rem;
-  height: 80vh;
+  /* height: 85vh; */
   max-width: 45rem;
   background-color: var(--white);
   border-radius: 2rem 2rem 2rem 0;
