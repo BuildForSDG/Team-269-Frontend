@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './LoginPage.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -68,7 +69,7 @@ class Login extends Component {
             <h2>Login to Slum Data!</h2>
             <p>Your one stop solution for slum related data.</p>
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
               className={formErrors.email.length > 0 ? 'error' : null}
@@ -80,7 +81,7 @@ class Login extends Component {
 
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
               className={formErrors.password.length > 0 ? 'error' : null}
@@ -93,8 +94,8 @@ class Login extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
-          <div className="form-control">
-            <input type="submit" value="LOGIN" />
+          <div className="form-group">
+            <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
             <small>
              Don't have an account? <Link>Sign Up</Link>
             </small>
