@@ -97,7 +97,7 @@ class Login extends Component {
           <div className="form-group">
             <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
             <small>
-             Don't have an account? <Link>Sign Up</Link>
+             Don't have an account? <Link to={"/register"}>Sign Up</Link>
             </small>
           </div>
         </form>
