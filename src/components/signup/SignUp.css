@@ -75,10 +75,6 @@ form select {
   border-radius: 0.3rem;
 }
 
-.form-control {
-  margin-bottom: 3rem;
-}
-
 input[type='submit'] {
   margin-bottom: 3rem;
   background-color: var(--primary-color-light);

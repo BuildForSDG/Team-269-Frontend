@@ -5,6 +5,7 @@ import './SignUp.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
 import axios from 'axios';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -84,13 +85,15 @@ class SignUp extends Component {
     return (
       <main>
         <Header />
+        <div className="wrapper">
+
         <form onSubmit={this.handleSubmit}>
           <div className="form-info text-center">
             <img src={logo} alt="" className="logo-center" />
             <h2>Welcome to Slum Data!</h2>
             <p>Your one stop solution for slum related data.</p>
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="fullname">Full Name</label>
             <input
               className={formErrors.fullName.length > 0 ? 'error' : null}
@@ -101,7 +104,7 @@ class SignUp extends Component {
             />
             {formErrors.fullName.length > 0 && <span className="errorMessage">{formErrors.firstName}</span>}
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
               className={formErrors.email.length > 0 ? 'error' : null}
@@ -113,7 +116,7 @@ class SignUp extends Component {
 
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
               className={formErrors.password.length > 0 ? 'error' : null}
@@ -126,7 +129,7 @@ class SignUp extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="password">Confirm password</label>
             <input
               className={formErrors.password.length > 0 ? 'error' : null}
@@ -141,13 +144,14 @@ class SignUp extends Component {
               <span className="errorMessage">{formErrors.password}</span>
             )}
           </div>
-          <div className="form-control">
-            <input type="submit" value="CREATE ACCOUNT" />
+          <div className="form-group">
+            <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
             <small>
               Already have an account? <Link>Login</Link>
             </small>
           </div>
         </form>
+        </div>
         <div className="LandingPageFooter">
           <LandingFooter />
         </div>
