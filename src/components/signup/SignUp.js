@@ -56,6 +56,7 @@ class SignUp extends Component {
     axios.post('https://b4sdg-team269.herokuapp.com/api/v1/auth/register', userData)
       .then((res) => {
         console.log(res.data)
+        window.location.href = `/login`;
       }).catch((error) => {
         console.log(error)
         this.setState({

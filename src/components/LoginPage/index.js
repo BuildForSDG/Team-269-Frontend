@@ -39,6 +39,14 @@ class Login extends Component {
 
     };
   }
+
+  componentDidMount() {
+    // remove the current state from local storage
+    // so that when a person logs in they dont encounter
+    // the previous state which wasnt cleared
+    localStorage.removeItem('state');
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -50,6 +58,10 @@ class Login extends Component {
     axios
     .post('https://b4sdg-team269.herokuapp.com/api/v1/auth/login', userLoginData)
     .then((res) => {
+
+      localStorage.setItem('token', res.token);
+      // Push the user to their dashboard
+      // window.location.href = `/users/${res.id}/dashboard`;
 
       console.log(res.data)
     }).catch((error) => {
