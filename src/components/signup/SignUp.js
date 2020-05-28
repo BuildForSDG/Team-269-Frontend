@@ -39,7 +39,7 @@ class SignUp extends Component {
         password: '',
         confirmPassword: ''
       },
-      error:''
+      error: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -53,22 +53,21 @@ class SignUp extends Component {
       password_confirmation: this.state.confirmPassword
     };
 
-    axios.post('http://b4sdg-team269.herokuapp.com/api/v1/auth/register', userData)
+    axios
+      .post('/auth/register', userData)
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         window.location.href = `/login`;
-      }).catch((error) => {
-        console.log(error)
+      })
+      .catch((error) => {
+        console.log(error);
         this.setState({
-
           error: 'Unsuccessful Register Attempt'
         });
-
       });
 
-    this.setState({ name: '', email: '', password: '', password_confirmation: '' })
-
-  };
+    this.setState({ name: '', email: '', password: '', password_confirmation: '' });
+  }
 
   handleChange = (e) => {
     e.preventDefault();
@@ -78,25 +77,25 @@ class SignUp extends Component {
     switch (name) {
       case 'fullname':
         formErrors.lastName = value.length < 6 ? 'Minimum 6 characaters required' : '';
-        this.setState({ fullName: value, error:'' })
+        this.setState({ fullName: value, error: '' });
         break;
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
-        this.setState({ email: value, error:'' })
+        this.setState({ email: value, error: '' });
         break;
       case 'password':
         formErrors.password = value.length < 8 ? 'Minimum 8 characaters required' : '';
-        this.setState({ password: value, error:'' })
+        this.setState({ password: value, error: '' });
         break;
       case 'confirmPassword':
         formErrors.confirmPassword = value.length !== formErrors.password ? 'Enter the same password' : '';
-        this.setState({ confirmPassword: value, error:'' })
+        this.setState({ confirmPassword: value, error: '' });
         break;
       default:
         break;
     }
 
-    this.setState({ formErrors, [name]: value },() => console.log(this.state));
+    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
   render() {
     const { formErrors, error } = this.state;
@@ -104,7 +103,6 @@ class SignUp extends Component {
       <main>
         <Header />
         <div className="wrapper">
-
           <form onSubmit={this.handleSubmit}>
             <div className="form-info text-center">
               <img src={logo} alt="" className="logo-center" height="30px" />
@@ -164,12 +162,13 @@ class SignUp extends Component {
                 <span className="errorMessage">{formErrors.password}</span>
               )}
             </div>
-            {error && (
-              <span className="errorMessage">{error}</span>
-                )}
+            {error && <span className="errorMessage">{error}</span>}
             <div className="form-group">
               <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
-               <b> Already have an account? <Link to={"/login"}>Login</Link></b>
+              <b>
+                {' '}
+                Already have an account? <Link to={'/login'}>Login</Link>
+              </b>
             </div>
           </form>
         </div>
@@ -177,8 +176,6 @@ class SignUp extends Component {
           <LandingFooter />
         </div>
       </main>
-
-
     );
   }
 }
