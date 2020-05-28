@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './SignUp.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
+import axios from 'axios';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -30,12 +31,10 @@ class SignUp extends Component {
       fullName: null,
       email: null,
       password: null,
-      phoneNumber: null,
       confirmPassword: null,
       formErrors: {
         fullName: '',
         email: '',
-        phoneNumber: '',
         password: '',
         confirmPassword: ''
       }
@@ -43,6 +42,17 @@ class SignUp extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+    const userData = {
+      name: this.state.fullName,
+      email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.confirmPassword
+    };
+    console.log("Here")
+    console.log(userData)
+
+
+
   };
 
   handleChange = (e) => {
@@ -51,10 +61,7 @@ class SignUp extends Component {
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
-      case 'firstName':
-        formErrors.firstName = value.length < 6 ? 'Minimum 6 characaters required' : '';
-        break;
-      case 'lastName':
+      case 'fullname':
         formErrors.lastName = value.length < 6 ? 'Minimum 6 characaters required' : '';
         break;
       case 'email':
