@@ -5,6 +5,7 @@ import './LoginPage.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -38,6 +39,21 @@ class Login extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const userLoginData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios.post('https://b4sdg-team269.herokuapp.com/api/v1/auth/register', userLoginData)
+    .then((res) => {
+      console.log(res.data)
+    }).catch((error) => {
+      console.log(error)
+    });
+
+  this.setState({email: '', password: ''})
+
   };
 
   handleChange = (e) => {
@@ -48,9 +64,11 @@ class Login extends Component {
     switch (name) {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
+        this.setState({ email: value })
         break;
       case 'password':
         formErrors.password = value.length < 1 ? 'Password is a required field' : '';
+        this.setState({ password: value })
         break;
       default:
         break;
@@ -97,7 +115,7 @@ class Login extends Component {
           <div className="form-group">
             <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
             <small>
-             Don't have an account? <Link to={"/register"}>Sign Up</Link>
+              Don't have an account? <Link to={"/register"}>Sign Up</Link>
             </small>
           </div>
         </form>
