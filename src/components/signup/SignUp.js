@@ -53,7 +53,7 @@ class SignUp extends Component {
       password_confirmation: this.state.confirmPassword
     };
 
-    axios.post('https://b4sdg-team269.herokuapp.com/api/v1/auth/register', userData)
+    axios.post('http://b4sdg-team269.herokuapp.com/api/v1/auth/register', userData)
       .then((res) => {
         console.log(res.data)
         window.location.href = `/login`;

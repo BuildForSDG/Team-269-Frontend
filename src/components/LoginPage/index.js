@@ -56,7 +56,7 @@ class Login extends Component {
     };
 
     axios
-    .post('https://b4sdg-team269.herokuapp.com/api/v1/auth/login', userLoginData)
+    .post('http://b4sdg-team269.herokuapp.com/api/v1/auth/login', userLoginData)
     .then((res) => {
 
       localStorage.setItem('token', res.token);
