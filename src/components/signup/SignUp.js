@@ -52,6 +52,15 @@ class SignUp extends Component {
       password_confirmation: this.state.confirmPassword
     };
 
+    axios.post('https://b4sdg-team269.herokuapp.com/api/v1/auth/register', userData)
+      .then((res) => {
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+      });
+
+    this.setState({ name: '', email: '', password: '', password_confirmation: '' })
+
   };
 
   handleChange = (e) => {
