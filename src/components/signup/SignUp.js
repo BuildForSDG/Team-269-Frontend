@@ -38,7 +38,8 @@ class SignUp extends Component {
         email: '',
         password: '',
         confirmPassword: ''
-      }
+      },
+      error:''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -57,6 +58,11 @@ class SignUp extends Component {
         console.log(res.data)
       }).catch((error) => {
         console.log(error)
+        this.setState({
+
+          error: 'Unsuccessful Register Attempt'
+        });
+
       });
 
     this.setState({ name: '', email: '', password: '', password_confirmation: '' })
@@ -71,19 +77,19 @@ class SignUp extends Component {
     switch (name) {
       case 'fullname':
         formErrors.lastName = value.length < 6 ? 'Minimum 6 characaters required' : '';
-        this.setState({ fullName: value })
+        this.setState({ fullName: value, error:'' })
         break;
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
-        this.setState({ email: value })
+        this.setState({ email: value, error:'' })
         break;
       case 'password':
         formErrors.password = value.length < 8 ? 'Minimum 8 characaters required' : '';
-        this.setState({ password: value })
+        this.setState({ password: value, error:'' })
         break;
       case 'confirmPassword':
         formErrors.confirmPassword = value.length !== formErrors.password ? 'Enter the same password' : '';
-        this.setState({ confirmPassword: value })
+        this.setState({ confirmPassword: value, error:'' })
         break;
       default:
         break;
@@ -92,7 +98,7 @@ class SignUp extends Component {
     this.setState({ formErrors, [name]: value },() => console.log(this.state));
   };
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, error } = this.state;
     return (
       <main>
         <Header />
@@ -157,6 +163,9 @@ class SignUp extends Component {
                 <span className="errorMessage">{formErrors.password}</span>
               )}
             </div>
+            {error && (
+              <span className="errorMessage">{error}</span>
+                )}
             <div className="form-group">
               <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
               <small>
