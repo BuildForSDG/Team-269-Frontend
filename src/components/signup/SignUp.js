@@ -147,7 +147,7 @@ class SignUp extends Component {
           <div className="form-group">
             <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
             <small>
-              Already have an account? <Link>Login</Link>
+              Already have an account? <Link to={"/login"}>Login</Link>
             </small>
           </div>
         </form>
