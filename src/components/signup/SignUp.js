@@ -51,8 +51,6 @@ class SignUp extends Component {
       password: this.state.password,
       password_confirmation: this.state.confirmPassword
     };
-    console.log("Here")
-    console.log(userData)
 
   };
 
@@ -82,7 +80,7 @@ class SignUp extends Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+    this.setState({ formErrors, [name]: value });
   };
   render() {
     const { formErrors } = this.state;
