@@ -68,7 +68,7 @@ class Login extends Component {
       console.log(error)
       this.setState({
 
-        error: 'Invalid Login Attempt'
+        error: 'Uncessful Login Attempt'
       });
     });
 
