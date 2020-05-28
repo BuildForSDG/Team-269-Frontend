@@ -40,8 +40,10 @@ class SignUp extends Component {
         confirmPassword: ''
       }
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit = (e) => {
+
+  handleSubmit(e) {
     e.preventDefault();
     const userData = {
       name: this.state.fullName,
@@ -51,8 +53,6 @@ class SignUp extends Component {
     };
     console.log("Here")
     console.log(userData)
-
-
 
   };
 
@@ -64,15 +64,19 @@ class SignUp extends Component {
     switch (name) {
       case 'fullname':
         formErrors.lastName = value.length < 6 ? 'Minimum 6 characaters required' : '';
+        this.setState({ fullName: value })
         break;
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
+        this.setState({ email: value })
         break;
       case 'password':
-        formErrors.password = value.length < 6 ? 'Minimum 8 characaters required' : '';
+        formErrors.password = value.length < 8 ? 'Minimum 8 characaters required' : '';
+        this.setState({ password: value })
         break;
       case 'confirmPassword':
         formErrors.confirmPassword = value.length !== formErrors.password ? 'Enter the same password' : '';
+        this.setState({ confirmPassword: value })
         break;
       default:
         break;
@@ -87,70 +91,72 @@ class SignUp extends Component {
         <Header />
         <div className="wrapper">
 
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-info text-center">
-            <img src={logo} alt="" className="logo-center" />
-            <h2>Welcome to Slum Data!</h2>
-            <p>Your one stop solution for slum related data.</p>
-          </div>
-          <div className="form-group">
-            <label htmlFor="fullname">Full Name</label>
-            <input
-              className={formErrors.fullName.length > 0 ? 'error' : null}
-              type="text"
-              name="fullname"
-              placeholder="Full Name"
-              required
-            />
-            {formErrors.fullName.length > 0 && <span className="errorMessage">{formErrors.firstName}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email Address</label>
-            <input
-              className={formErrors.email.length > 0 ? 'error' : null}
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              required
-            />
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-info text-center">
+              <img src={logo} alt="" className="logo-center" />
+              <h2>Welcome to Slum Data!</h2>
+              <p>Your one stop solution for slum related data.</p>
+            </div>
+            <div className="form-group">
+              <label htmlFor="fullname">Full Name</label>
+              <input
+                className={formErrors.fullName.length > 0 ? 'error' : null}
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                required
+                onChange={this.handleChange}
+              />
+              {formErrors.fullName.length > 0 && <span className="errorMessage">{formErrors.firstName}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                className={formErrors.email.length > 0 ? 'error' : null}
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                onChange={this.handleChange}
+              />
 
-            {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              className={formErrors.password.length > 0 ? 'error' : null}
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Confirm password</label>
-            <input
-              className={formErrors.password.length > 0 ? 'error' : null}
-              type="password"
-              name="password"
-              placeholder="Confirm password"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.password.length !== formErrors.confirmPassword.length && (
-              <span className="errorMessage">{formErrors.password}</span>
-            )}
-          </div>
-          <div className="form-group">
-            <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
-            <small>
-              Already have an account? <Link to={"/login"}>Login</Link>
-            </small>
-          </div>
-        </form>
+              {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                className={formErrors.password.length > 0 ? 'error' : null}
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                formNoValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Confirm password</label>
+              <input
+                className={formErrors.password.length > 0 ? 'error' : null}
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                required
+                formNoValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.password.length !== formErrors.confirmPassword.length && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            <div className="form-group">
+              <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
+              <small>
+                Already have an account? <Link to={"/login"}>Login</Link>
+              </small>
+            </div>
+          </form>
         </div>
         <div className="LandingPageFooter">
           <LandingFooter />
