@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './LoginPage.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -32,11 +34,46 @@ class Login extends Component {
       formErrors: {
         email: '',
         password: ''
-      }
+      },
+      error: ''
+
     };
   }
+
+  componentDidMount() {
+    // remove the current state from local storage
+    // so that when a person logs in they dont encounter
+    // the previous state which wasnt cleared
+    localStorage.removeItem('state');
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const userLoginData = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    axios
+      .post('/auth/login', userLoginData)
+      .then((res) => {
+
+        localStorage.setItem('token', res.token);
+        // Push the user to their dashboard
+        // window.location.href = `/users/${res.id}/dashboard`;
+
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+        this.setState({
+
+          error: 'Unsuccessful Login Attempt'
+        });
+      });
+
+    this.setState({ email: '', password: '' })
+
   };
 
   handleChange = (e) => {
@@ -47,9 +84,11 @@ class Login extends Component {
     switch (name) {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
+        this.setState({ email: value, error: '' })
         break;
       case 'password':
         formErrors.password = value.length < 1 ? 'Password is a required field' : '';
+        this.setState({ password: value, error: '' })
         break;
       default:
         break;
@@ -58,7 +97,7 @@ class Login extends Component {
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, error } = this.state;
     return (
       <main>
         <Header />
@@ -68,7 +107,8 @@ class Login extends Component {
             <h2>Login to Slum Data!</h2>
             <p>Your one stop solution for slum related data.</p>
           </div>
-          <div className="form-control">
+          <br />
+          <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
               className={formErrors.email.length > 0 ? 'error' : null}
@@ -76,11 +116,12 @@ class Login extends Component {
               name="email"
               placeholder="Email Address"
               required
+              formNoValidate
+              onChange={this.handleChange}
             />
-
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
           </div>
-          <div className="form-control">
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
               className={formErrors.password.length > 0 ? 'error' : null}
@@ -93,10 +134,14 @@ class Login extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
-          <div className="form-control">
-            <input type="submit" value="LOGIN" />
+          <br />
+          {error && (
+            <span className="errorMessage">{error}</span>
+          )}
+          <div className="form-group">
+            <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
             <small>
-             Don't have an account? <Link>Sign Up</Link>
+              <b>Don't have an account? <Link to={"/register"}>Sign Up</Link></b>
             </small>
           </div>
         </form>

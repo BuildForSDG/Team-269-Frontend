@@ -37,7 +37,7 @@ main {
 form {
   margin: 0 auto;
   padding: 0 4rem;
-  height: 110vh;
+  height: 120vh;
   max-width: 45rem;
   background-color: var(--white);
   border-radius: 2rem 2rem 2rem 0;
@@ -73,10 +73,6 @@ form select {
   font-family: inherit;
   border: none;
   border-radius: 0.3rem;
-}
-
-.form-control {
-  margin-bottom: 3rem;
 }
 
 input[type='submit'] {

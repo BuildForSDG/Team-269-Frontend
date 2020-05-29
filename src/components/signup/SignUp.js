@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import './SignUp.css';
 import Header from '../PageHeader';
 import LandingFooter from '../PageFooter';
+import axios from 'axios';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 //Add the telephone regex
@@ -30,20 +32,42 @@ class SignUp extends Component {
       fullName: null,
       email: null,
       password: null,
-      phoneNumber: null,
       confirmPassword: null,
       formErrors: {
         fullName: '',
         email: '',
-        phoneNumber: '',
         password: '',
         confirmPassword: ''
-      }
+      },
+      error: ''
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleSubmit = (e) => {
+
+  handleSubmit(e) {
     e.preventDefault();
-  };
+    const userData = {
+      name: this.state.fullName,
+      email: this.state.email,
+      password: this.state.password,
+      password_confirmation: this.state.confirmPassword
+    };
+
+    axios
+      .post('/auth/register', userData)
+      .then((res) => {
+        console.log(res.data);
+        window.location.href = `/login`;
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({
+          error: 'Unsuccessful Register Attempt'
+        });
+      });
+
+    this.setState({ name: '', email: '', password: '', password_confirmation: '' });
+  }
 
   handleChange = (e) => {
     e.preventDefault();
@@ -51,20 +75,21 @@ class SignUp extends Component {
     let formErrors = { ...this.state.formErrors };
 
     switch (name) {
-      case 'firstName':
-        formErrors.firstName = value.length < 6 ? 'Minimum 6 characaters required' : '';
-        break;
-      case 'lastName':
+      case 'fullname':
         formErrors.lastName = value.length < 6 ? 'Minimum 6 characaters required' : '';
+        this.setState({ fullName: value, error: '' });
         break;
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
+        this.setState({ email: value, error: '' });
         break;
       case 'password':
-        formErrors.password = value.length < 6 ? 'Minimum 8 characaters required' : '';
+        formErrors.password = value.length < 8 ? 'Minimum 8 characaters required' : '';
+        this.setState({ password: value, error: '' });
         break;
       case 'confirmPassword':
         formErrors.confirmPassword = value.length !== formErrors.password ? 'Enter the same password' : '';
+        this.setState({ confirmPassword: value, error: '' });
         break;
       default:
         break;
@@ -73,97 +98,80 @@ class SignUp extends Component {
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
   render() {
-    const { formErrors } = this.state;
+    const { formErrors, error } = this.state;
     return (
       <main>
         <Header />
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-info text-center">
-            <img src={logo} alt="" className="logo-center" />
-            <h2>Welcome to Slum Data!</h2>
-            <p>Your one stop solution for slum related data.</p>
-          </div>
-          <div className="form-control">
-            <label htmlFor="fullname">Full Name</label>
-            <input
-              className={formErrors.fullName.length > 0 ? 'error' : null}
-              type="text"
-              name="fullname"
-              placeholder="Full Name"
-              required
-            />
-            {formErrors.fullName.length > 0 && <span className="errorMessage">{formErrors.firstName}</span>}
-          </div>
-          <div className="form-control">
-            <label htmlFor="email">Email Address</label>
-            <input
-              className={formErrors.email.length > 0 ? 'error' : null}
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              required
-            />
+        <div className="wrapper">
+          <form onSubmit={this.handleSubmit}>
+            <div className="form-info text-center">
+              <img src={logo} alt="" className="logo-center" height="30px" />
+              <h2>Welcome to Slum Data!</h2>
+              <p>Your one stop solution for slum related data.</p>
+            </div>
+            <div className="form-group">
+              <label htmlFor="fullname">Full Name</label>
+              <input
+                className={formErrors.fullName.length > 0 ? 'error' : null}
+                type="text"
+                name="fullname"
+                placeholder="Full Name"
+                required
+                onChange={this.handleChange}
+              />
+              {formErrors.fullName.length > 0 && <span className="errorMessage">{formErrors.firstName}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address</label>
+              <input
+                className={formErrors.email.length > 0 ? 'error' : null}
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                onChange={this.handleChange}
+              />
 
-            {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
-          </div>
-          <div className="form-control">
-            <label htmlFor="phoneNumber">Phone Number</label>
-            <input
-              className={formErrors.phoneNumber.length > 0 ? 'error' : null}
-              type="text"
-              name="phoneno"
-              placeholder="Phone Number"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.phoneNumber.length > 0 && <span className="errorMessage">{formErrors.phoneNumber}</span>}
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Password</label>
-            <input
-              className={formErrors.password.length > 0 ? 'error' : null}
-              type="password"
-              name="password"
-              placeholder="Password"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Confirm password</label>
-            <input
-              className={formErrors.password.length > 0 ? 'error' : null}
-              type="password"
-              name="password"
-              placeholder="Confirm password"
-              required
-              formNoValidate
-              onChange={this.handleChange}
-            />
-            {formErrors.password.length !== formErrors.confirmPassword.length && (
-              <span className="errorMessage">{formErrors.password}</span>
-            )}
-          </div>
-          <div className="form-control">
-            <label htmlFor="role">Which role best describes you?</label>
-            <select name="role">
-              <option value="clicktoselect">Click To Select</option>
-              <option value="reseacher">Researcher</option>
-              <option value="enumerator">Enumerator</option>
-              <option value="student">Student</option>
-              onChange={this.handleChange}
-            </select>
-          </div>
-          <div className="form-control">
-            <input type="submit" value="CREATE ACCOUNT" />
-            <small>
-              Already have an account? <Link>Login</Link>
-            </small>
-          </div>
-        </form>
+              {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                className={formErrors.password.length > 0 ? 'error' : null}
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                formNoValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Confirm password</label>
+              <input
+                className={formErrors.password.length > 0 ? 'error' : null}
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm password"
+                required
+                formNoValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.password.length !== formErrors.confirmPassword.length && (
+                <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            {error && <span className="errorMessage">{error}</span>}
+            <div className="form-group">
+              <input type="submit" value="CREATE ACCOUNT" className="btn btn-success btn-block" />
+              <b>
+                {' '}
+                Already have an account? <Link to={'/login'}>Login</Link>
+              </b>
+            </div>
+          </form>
+        </div>
         <div className="LandingPageFooter">
           <LandingFooter />
         </div>
