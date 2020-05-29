@@ -56,23 +56,23 @@ class Login extends Component {
     };
 
     axios
-    .post('http://b4sdg-team269.herokuapp.com/api/v1/auth/login', userLoginData)
-    .then((res) => {
+      .post('/auth/login', userLoginData)
+      .then((res) => {
 
-      localStorage.setItem('token', res.token);
-      // Push the user to their dashboard
-      // window.location.href = `/users/${res.id}/dashboard`;
+        localStorage.setItem('token', res.token);
+        // Push the user to their dashboard
+        // window.location.href = `/users/${res.id}/dashboard`;
 
-      console.log(res.data)
-    }).catch((error) => {
-      console.log(error)
-      this.setState({
+        console.log(res.data)
+      }).catch((error) => {
+        console.log(error)
+        this.setState({
 
-        error: 'Unsuccessful Login Attempt'
+          error: 'Unsuccessful Login Attempt'
+        });
       });
-    });
 
-  this.setState({email: '', password: ''})
+    this.setState({ email: '', password: '' })
 
   };
 
@@ -84,11 +84,11 @@ class Login extends Component {
     switch (name) {
       case 'email':
         formErrors.email = emailRegex.test(value) ? '' : 'Invalid email address';
-        this.setState({ email: value, error:'' })
+        this.setState({ email: value, error: '' })
         break;
       case 'password':
         formErrors.password = value.length < 1 ? 'Password is a required field' : '';
-        this.setState({ password: value, error:'' })
+        this.setState({ password: value, error: '' })
         break;
       default:
         break;
@@ -107,7 +107,7 @@ class Login extends Component {
             <h2>Login to Slum Data!</h2>
             <p>Your one stop solution for slum related data.</p>
           </div>
-          <br/>
+          <br />
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
             <input
@@ -119,7 +119,6 @@ class Login extends Component {
               formNoValidate
               onChange={this.handleChange}
             />
-
             {formErrors.email.length > 0 && <span className="errorMessage">{formErrors.email}</span>}
           </div>
           <div className="form-group">
@@ -135,16 +134,12 @@ class Login extends Component {
             />
             {formErrors.password.length > 0 && <span className="errorMessage">{formErrors.password}</span>}
           </div>
-          <br/>
+          <br />
           {error && (
-              <span className="errorMessage">{error}</span>
-                )}
+            <span className="errorMessage">{error}</span>
+          )}
           <div className="form-group">
-
             <input type="submit" value="LOGIN" className="btn btn-success btn-block" />
-
-
-
             <small>
               <b>Don't have an account? <Link to={"/register"}>Sign Up</Link></b>
             </small>
